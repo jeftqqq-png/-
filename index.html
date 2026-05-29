@@ -26,6 +26,8 @@ body{font-family:'PingFang SC',"Helvetica Neue",'Microsoft YaHei',Helvetica,Aria
 .nav-group-header .nav-sub{font-size:10px;color:#8C8E98;font-weight:400;margin-left:4px}
 .nav-group-body{display:none}
 .nav-group-body.open{display:block}
+.sidebar-sub .nav-group-header{padding-left:28px}
+.sidebar-sub .sidebar-menu li a{padding-left:48px;font-size:12px}
 .sidebar-menu li.standalone{padding:0}
 /* ---- Main ---- */
 .main{margin-left:208px;flex:1}
@@ -91,6 +93,35 @@ table tr:hover td{background:#FAFAFB}
 .mp-nav-title{color:#fff;font-size:17px;font-weight:600}
 .mp-nav-back{position:absolute;left:14px;color:#fff;font-size:22px;cursor:pointer}
 .mp-nav-action{position:absolute;right:14px;color:#fff;font-size:13px;cursor:pointer}
+.mp-nav-bell{position:absolute;right:14px;top:50%;transform:translateY(-50%);cursor:pointer;z-index:6}
+.mp-navbar:has(.mp-nav-action) .mp-nav-bell{right:52px}
+.mp-nav-bell svg{width:22px;height:22px}
+.mp-nav-bell .bell-badge{position:absolute;top:-4px;right:-6px;min-width:16px;height:16px;border-radius:8px;background:#FF4D4F;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 4px}
+.mp-nav-bell .bell-badge:empty{display:none}
+.mp-msg-overlay{position:absolute;inset:0;z-index:15;background:rgba(0,5,27,.2);display:none}
+.mp-msg-overlay.open{display:block}
+.mp-msg-panel{position:absolute;top:48px;right:0;left:0;bottom:0;background:#F5F5F5;border-radius:12px 12px 0 0;z-index:20;display:none;flex-direction:column;overflow:hidden;box-shadow:0 -4px 20px rgba(0,0,0,.1)}
+.mp-msg-panel.open{display:flex}
+.mp-msg-panel-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 10px;background:#fff;border-radius:12px 12px 0 0;border-bottom:1px solid rgba(0,5,27,.06)}
+.mp-msg-panel-head h4{font-size:15px;font-weight:600;color:#262A3D}
+.mp-msg-mark-all{border:none;background:none;color:#0BD3D3;font-size:12px;cursor:pointer;font-weight:600}
+.mp-msg-list{flex:1;overflow-y:auto;padding:8px 12px}
+.mp-msg-card{padding:12px;border-radius:10px;background:#fff;margin-bottom:8px;cursor:pointer;transition:background .15s;border-left:3px solid #0BD3D3}
+.mp-msg-card:active{background:#F0FFFF}
+.mp-msg-card.read{border-left-color:#D3DCE6;background:#FAFAFA}
+.mp-msg-card .mp-msg-type{font-size:11px;font-weight:600;margin-bottom:4px;display:inline-block;padding:2px 6px;border-radius:4px}
+.mp-msg-card .mp-msg-type.t-schedule{background:#E6F7FF;color:#1890FF}
+.mp-msg-card .mp-msg-type.t-opp{background:#FFF7E6;color:#FA8C16}
+.mp-msg-card .mp-msg-type.t-follow{background:#FFF0F0;color:#FF4D4F}
+.mp-msg-card .mp-msg-type.t-nofollow{background:#FFF1F0;color:#FF4D4F}
+.mp-msg-card .mp-msg-type.t-sign{background:#F0FFF0;color:#52C41A}
+.mp-msg-card.read .mp-msg-type{opacity:.5}
+.mp-msg-card .mp-msg-title{font-size:13px;font-weight:600;color:#262A3D;line-height:1.4}
+.mp-msg-card.read .mp-msg-title{color:#8C8E98}
+.mp-msg-card .mp-msg-detail{font-size:12px;color:#595C6B;line-height:1.5;margin-top:4px}
+.mp-msg-card .mp-msg-time{font-size:11px;color:#8C8E98;margin-top:6px}
+.mp-msg-unread-dot{width:6px;height:6px;border-radius:50%;background:#FF4D4F;display:inline-block;margin-right:4px;vertical-align:middle}
+.mp-msg-card.read .mp-msg-unread-dot{display:none}
 .mp-body{flex:1;overflow-y:auto;background:#f5f5f5;-webkit-overflow-scrolling:touch}
 .mp-tabbar{height:56px;background:#fff;border-top:1px solid rgba(0,0,0,0.06);display:flex;align-items:center;padding-bottom:6px}
 .mp-tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;color:#8C8E98;font-size:10px;transition:color .2s}
@@ -194,7 +225,7 @@ table tr:hover td{background:#FAFAFB}
 .mp-map-workbench{position:relative;height:100%;overflow:hidden;background:linear-gradient(135deg,#EAFBFB 0%,#F5FFFF 46%,#E7F2F2 100%)}
 .mp-map-workbench.dragging{cursor:grabbing}
 .mp-map-workbench::before{content:"";position:absolute;inset:-30px;background:linear-gradient(90deg,rgba(11,211,211,.12) 1px,transparent 1px) 0 0/42px 42px,linear-gradient(rgba(11,211,211,.10) 1px,transparent 1px) 0 0/42px 42px;opacity:.72}
-.mp-map-canvas{position:absolute;inset:0;z-index:1;transform:translate(0,0) scale(1);transform-origin:0 0;transition:transform .16s ease;touch-action:none;cursor:grab}
+.mp-map-canvas{position:absolute;inset:0;z-index:1;transform:translate(0,0) scale(1);transform-origin:0 0;transition:transform .22s ease;touch-action:none;cursor:grab}
 .mp-map-workbench.dragging .mp-map-canvas{transition:none;cursor:grabbing}
 .mp-map-grid{position:absolute;inset:-40px;background:linear-gradient(90deg,rgba(11,211,211,.12) 1px,transparent 1px) 0 0/42px 42px,linear-gradient(rgba(11,211,211,.10) 1px,transparent 1px) 0 0/42px 42px;opacity:.52}
 .mp-map-road{position:absolute;background:rgba(255,255,255,.86);border:1px solid rgba(11,211,211,.16);box-shadow:0 2px 12px rgba(0,5,27,.04)}
@@ -203,6 +234,12 @@ table tr:hover td{background:#FAFAFB}
 .mp-map-road.r3{width:18px;height:620px;left:230px;top:-40px;transform:rotate(7deg)}
 .mp-map-river{position:absolute;width:460px;height:72px;left:-50px;top:438px;transform:rotate(-9deg);border-radius:999px;background:rgba(11,211,211,.16);filter:blur(.2px)}
 .mp-map-locate-floating{position:absolute;right:12px;top:12px;z-index:4}
+.mp-map-zoom{position:absolute;right:12px;top:56px;z-index:4;display:flex;flex-direction:column;gap:1px}
+.mp-map-zoom button{width:34px;height:34px;border:none;background:#fff;color:#262A3D;font-size:18px;font-weight:600;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.mp-map-zoom button:first-child{border-radius:8px 8px 0 0;border:1px solid rgba(0,5,27,.08)}
+.mp-map-zoom button:last-child{border-radius:0 0 8px 8px;border:1px solid rgba(0,5,27,.08);border-top:none}
+.mp-map-zoom button:active{background:#F0FFFF}
+.mp-map-zoom button:disabled{background:#F5F5F5;color:#C0C0C0;cursor:not-allowed;opacity:.55}
 .mp-map-icon-btn{width:34px;height:34px;border:none;border-radius:8px;background:#0BD3D3;color:#fff;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer}
 .mp-map-icon-btn.muted{background:#F0FFFF;color:#0BAAAA;border:1px solid rgba(11,211,211,.24)}
 .mp-map-search{display:flex;align-items:center;min-width:0;flex:1;padding:8px 10px;border:1px solid rgba(11,211,211,.22);border-radius:8px;background:#FAFFFF}
@@ -219,19 +256,23 @@ table tr:hover td{background:#FAFAFB}
 .mp-map-user{position:absolute;left:48%;top:48%;width:16px;height:16px;border-radius:50%;background:#1677FF;border:4px solid #fff;box-shadow:0 0 0 9px rgba(22,119,255,.14),0 6px 20px rgba(22,119,255,.24);z-index:2}
 .map-marker{position:absolute;z-index:2;transform:translate(-50%,-100%);border:none;background:transparent;display:flex;align-items:center;gap:5px;color:#262A3D;cursor:pointer;filter:drop-shadow(0 8px 15px rgba(0,5,27,.18))}
 .map-marker .pin-dot{width:22px;height:22px;border-radius:50% 50% 50% 6px;transform:rotate(-45deg);border:3px solid #fff;box-shadow:0 8px 18px rgba(0,5,27,.18);flex-shrink:0}
-.map-marker .pin-label{max-width:86px;padding:4px 7px;border-radius:8px;background:rgba(255,255,255,.94);border:1px solid rgba(0,5,27,.06);font-size:10px;font-weight:700;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#262A3D}
-.map-marker.green .pin-dot{background:#52C41A}.map-marker.yellow .pin-dot{background:#FAAD14}.map-marker.red .pin-dot{background:#FF4D4F}.map-marker.rejected .pin-dot{background:#8C8E98}
+.map-marker .pin-label{max-width:86px;padding:4px 7px;border-radius:8px;background:rgba(255,255,255,.94);border:1px solid rgba(0,5,27,.06);font-size:10px;font-weight:700;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#262A3D;transition:opacity .2s ease}
+.map-marker.green .pin-dot{background:#52C41A}.map-marker.orange .pin-dot{background:#FA8C16}.map-marker.red .pin-dot{background:#FF4D4F}.map-marker.gray .pin-dot{background:#8C8E98}
+.map-marker[data-zoom].zoom-hidden{display:none}
 .map-marker.selected{z-index:3}
 .map-marker.selected .pin-dot{width:27px;height:27px;border-color:#F0FFFF;box-shadow:0 12px 24px rgba(0,5,27,.25)}
 .map-marker.selected .pin-label{border-color:#0BD3D3;color:#0BAAAA;box-shadow:0 8px 18px rgba(11,211,211,.18)}
 .mp-map-legend{position:absolute;right:12px;bottom:98px;z-index:3;display:grid;gap:4px;padding:8px 9px;border-radius:9px;background:rgba(255,255,255,.92);border:1px solid rgba(0,5,27,.06);box-shadow:0 8px 20px rgba(0,5,27,.08);font-size:10px;color:#595C6B}
 .mp-map-legend span{display:flex;align-items:center;gap:5px;white-space:nowrap}
 .mp-map-legend i{width:8px;height:8px;border-radius:50%;display:inline-block}
-.mp-map-legend .green{background:#52C41A}.mp-map-legend .yellow{background:#FAAD14}.mp-map-legend .red{background:#FF4D4F}.mp-map-legend .gray{background:#8C8E98}
+.mp-map-legend .green{background:#52C41A}.mp-map-legend .orange{background:#FA8C16}.mp-map-legend .red{background:#FF4D4F}.mp-map-legend .gray{background:#8C8E98}
 .mp-map-sheet{position:absolute;left:0;right:0;bottom:0;z-index:4;height:78px;border-radius:18px 18px 0 0;background:rgba(255,255,255,.98);border-top:1px solid rgba(11,211,211,.18);box-shadow:0 -12px 34px rgba(0,5,27,.14);display:flex;flex-direction:column;overflow:hidden;transition:height .24s ease}
 .mp-map-sheet.expanded{height:70%}
-.mp-map-sheet-handle{width:42px;height:4px;border-radius:999px;background:#CDEEEE;margin:8px auto}
+.mp-map-sheet-handle{width:36px;height:4px;border-radius:999px;background:#CDEEEE;margin:8px auto;cursor:pointer;transition:background .2s}
+.mp-map-sheet-handle:hover{background:#0BD3D3}
 .mp-map-sheet-search{display:flex;align-items:center;gap:8px;padding:0 12px 10px}
+#map-sheet-toggle{width:30px;height:30px;border-radius:8px;border:1px solid rgba(0,5,27,.1);background:#fff;color:#0BD3D3;font-size:16px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;box-shadow:0 2px 6px rgba(0,5,27,.08)}
+#map-sheet-toggle:hover{background:#0BD3D3;color:#fff;border-color:#0BD3D3}
 .mp-map-list{padding:0 12px 14px;overflow-y:auto}
 .mp-map-sheet:not(.expanded) .mp-map-filter-body,.mp-map-sheet:not(.expanded) .mp-map-list{display:none}
 .mp-map-panel-list{display:none}
@@ -396,7 +437,10 @@ table tr:hover td{background:#FAFAFB}
 .mp-store-contact{font-size:12px;color:#595C6B;margin-top:4px}
 .mp-store-address{font-size:11px;color:#8C8E98;margin-top:3px;line-height:1.5}
 .mp-store-time{font-size:11px;color:#8C8E98;margin-top:4px}
-.mp-store-actions{display:flex;flex-direction:column;gap:6px;align-items:flex-end;flex-shrink:0}
+.mp-store-actions{display:flex;gap:6px;align-items:center;flex-shrink:0}
+.mp-icon-btn{width:32px;height:32px;border-radius:8px;border:1px solid #E8E8ED;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;flex-shrink:0}
+.mp-icon-btn:hover{border-color:#0BD3D3;background:rgba(11,211,211,0.06)}
+.mp-icon-btn:active{transform:scale(.95)}
 .mp-store-status-line{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px}
 .mp-store-row{cursor:pointer;transition:border-color .18s,box-shadow .18s,transform .18s}
 .mp-store-row:hover{border-color:rgba(11,211,211,0.28);box-shadow:0 6px 16px rgba(0,5,27,0.06);transform:translateY(-1px)}
@@ -626,23 +670,21 @@ table tr:hover td{background:#FAFAFB}
 <li><a onclick="showPage('company-dashboard',this)">首页工作台</a></li>
 <li><a onclick="showPage('company-opportunity',this)">商机</a></li>
 <li><a onclick="showPage('company-store',this)">门店</a></li>
-<li><a onclick="showPage('company-store-follow-up',this)">门店跟进</a></li>
 <li><a onclick="showPage('company-schedule',this)">日程管理</a></li>
-<li><a onclick="showPage('company-map',this)">地图与网格</a></li>
-<li>
+<li><a onclick="showPage('company-map',this)">地图</a></li>
+<li class="sidebar-sub">
 <div class="nav-group-header" onclick="toggleNav(this)">
 <span class="nav-arrow">▶</span>
 <span class="nav-title">合同签约</span>
 </div>
 <div class="nav-group-body">
 <ul class="sidebar-menu">
-<li><a onclick="showPage('sign-flow',this)">签约链接发送</a></li>
+<li><a onclick="goSignInvitePage(this)">签约链接发送</a></li>
 <li><a onclick="showPage('cert',this)">门诊企业认证</a></li>
 <li><a onclick="showPage('contract-sign',this)">门诊企业签署</a></li>
 </ul>
 </div>
 </li>
-<li><a onclick="showPage('company-message',this)">消息</a></li>
 <li><a onclick="showPage('company-profile',this)">我的</a></li>
 </ul>
 </div>
@@ -798,7 +840,7 @@ table tr:hover td{background:#FAFAFB}
 <div class="mp-statusbar"><span>9:41</span><span>📶 🔋</span></div>
 <div class="mp-body" style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(180deg,#0BD3D3 0%,#EFFFFF 45%,#f5f5f5 100%)">
 <div style="width:72px;height:72px;background:#fff;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:36px;box-shadow:0 4px 16px rgba(0,0,0,0.1);margin-bottom:16px">🦷</div>
-<div style="font-size:20px;font-weight:700;color:#fff;margin-bottom:4px;text-shadow:0 1px 4px rgba(0,0,0,0.1)">种植牙保障险</div>
+<div style="font-size:20px;font-weight:700;color:#fff;margin-bottom:4px;text-shadow:0 1px 4px rgba(0,0,0,0.1)">种植牙保险拓店系统</div>
 <div style="font-size:13px;color:rgba(255,255,255,0.85);margin-bottom:36px">商务端</div>
 <div style="width:100%;padding:0 28px">
 <div style="background:#fff;border-radius:12px;padding:24px 16px;box-shadow:0 2px 12px rgba(0,0,0,0.06)">
@@ -840,9 +882,9 @@ table tr:hover td{background:#FAFAFB}
 </div>
 <div class="mp-section">工作概览</div>
 <div class="mp-stats">
-<div class="mp-stat is-clickable" onclick="showPage('company-opportunity')"><div class="label">商机</div><div class="value teal">8</div><div class="desc">总部下发，待认领跟进</div></div>
-<div class="mp-stat is-clickable" onclick="showStoreFilter('store-pending')"><div class="label">已认领待跟进</div><div class="value orange">6</div><div class="desc">我的门店，需继续推进</div></div>
-<div class="mp-stat is-clickable" onclick="showStoreFilter('store-pending')"><div class="label">今日跟进</div><div class="value">5</div><div class="desc">已记录 2 · 待跟进 3</div></div>
+<div class="mp-stat is-clickable" onclick="showPage('company-schedule')"><div class="label">今日日程</div><div class="value teal">4</div><div class="desc">待办</div></div>
+<div class="mp-stat is-clickable" onclick="showPage('company-opportunity')"><div class="label">新增商机</div><div class="value teal">8</div><div class="desc">待认领</div></div>
+<div class="mp-stat is-clickable" onclick="showStoreFilter('store-pending')"><div class="label">待跟进客户</div><div class="value orange">6</div><div class="desc">需继续推进</div></div>
 <div class="mp-stat is-clickable" onclick="showStoreFilter('store-signed')"><div class="label">已签约</div><div class="value red">18</div><div class="desc">负责区域签约门店</div></div>
 </div>
 <div class="mp-dashboard-card">
@@ -923,9 +965,9 @@ table tr:hover td{background:#FAFAFB}
 </div>
 <div class="mp-opportunity-panel" id="opportunity-claimed">
 <div class="mp-list">
-<div class="mp-item mp-opportunity-row"><div class="mp-row"><div class="mp-opportunity-info"><div class="mp-title">西湖美齿口腔</div><div class="mp-opportunity-contact">刘医生 · 135****7788</div><div class="mp-opportunity-address">杭州市西湖区黄龙路26号</div><div class="mp-opportunity-time">认领时间：今日 10:15 · 认领人：张明</div></div><span class="mp-tag mp-tag-teal">已认领</span></div></div>
-<div class="mp-item mp-opportunity-row"><div class="mp-row"><div class="mp-opportunity-info"><div class="mp-title">上城同德口腔</div><div class="mp-opportunity-contact">周主任 · 138****1209</div><div class="mp-opportunity-address">杭州市上城区庆春路168号</div><div class="mp-opportunity-time">认领时间：昨日 17:40 · 认领人：赵磊</div></div><span class="mp-tag mp-tag-teal">已认领</span></div></div>
-<div class="mp-item mp-opportunity-row"><div class="mp-row"><div class="mp-opportunity-info"><div class="mp-title">拱墅美康口腔</div><div class="mp-opportunity-contact">吴院长 · 139****5632</div><div class="mp-opportunity-address">杭州市拱墅区莫干山路188号</div><div class="mp-opportunity-time">认领时间：昨日 14:05 · 认领人：张明</div></div><span class="mp-tag mp-tag-teal">已认领</span></div></div>
+<div class="mp-item mp-opportunity-row"><div class="mp-row"><div class="mp-opportunity-info"><div class="mp-title">西湖美齿口腔</div><div class="mp-opportunity-contact">刘医生 · 135****7788</div><div class="mp-opportunity-address">杭州市西湖区黄龙路26号</div><div class="mp-opportunity-time">认领时间：今日 10:15</div></div><span class="mp-tag mp-tag-teal">已认领</span></div></div>
+<div class="mp-item mp-opportunity-row"><div class="mp-row"><div class="mp-opportunity-info"><div class="mp-title">上城同德口腔</div><div class="mp-opportunity-contact">周主任 · 138****1209</div><div class="mp-opportunity-address">杭州市上城区庆春路168号</div><div class="mp-opportunity-time">认领时间：昨日 17:40</div></div><span class="mp-tag mp-tag-teal">已认领</span></div></div>
+<div class="mp-item mp-opportunity-row"><div class="mp-row"><div class="mp-opportunity-info"><div class="mp-title">拱墅美康口腔</div><div class="mp-opportunity-contact">吴院长 · 139****5632</div><div class="mp-opportunity-address">杭州市拱墅区莫干山路188号</div><div class="mp-opportunity-time">认领时间：昨日 14:05</div></div><span class="mp-tag mp-tag-teal">已认领</span></div></div>
 </div>
 <div style="text-align:center;padding:10px;font-size:12px;color:#8C8E98">已认领商机仅作追溯查看</div>
 </div>
@@ -985,38 +1027,38 @@ table tr:hover td{background:#FAFAFB}
 <div class="mp-body">
 <div class="mp-px">
 <div class="mp-search"><span style="color:#8C8E98;margin-right:6px">🔍</span><input placeholder="搜索门店名称"></div>
-<div class="mp-filters"><span class="mp-ftag" data-store-panel="store-all">全部</span><span class="mp-ftag active" data-store-panel="store-pending">待跟进</span><span class="mp-ftag" data-store-panel="store-following">跟进中</span><span class="mp-ftag" data-store-panel="store-signed">已签约</span></div>
-<div class="mp-opportunity-meta"><span>默认展示待跟进门店</span><span>按下次跟进时间排序</span></div>
+<div class="mp-filters"><span class="mp-ftag active" data-store-panel="store-all">全部</span><span class="mp-ftag" data-store-panel="store-pending">待跟进</span><span class="mp-ftag" data-store-panel="store-following">跟进中</span><span class="mp-ftag" data-store-panel="store-signed">已签约</span></div>
+<div class="mp-opportunity-meta"><span>默认展示全部门店</span><span>按状态和时间排序</span></div>
 <div style="display:flex;gap:8px;margin-bottom:10px;font-size:11px;color:#8C8E98"><span>待跟进 <strong>6</strong></span><span>跟进中 <strong>5</strong></span><span>已签约 <strong>18</strong></span></div>
 
-<div class="mp-store-panel" id="store-all">
+<div class="mp-store-panel active" id="store-all">
 <div class="mp-list">
-<div class="mp-item mp-store-row" onclick="openStoreDetailFromRow(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">西湖美齿口腔</div><div class="mp-store-contact">刘医生 · 135****7788</div><div class="mp-store-address">杭州市西湖区黄龙路26号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-orange">待跟进</span><span class="mp-store-time">下次跟进：今日 15:00</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" data-follow-click="ignore" onclick="event.stopPropagation();openStoreFollowUpFromButton(this)">记跟进</button><button class="mp-link-btn" data-follow-click="ignore" onclick="event.stopPropagation();showPage('company-map')">导航</button></div></div></div>
-<div class="mp-item mp-store-row" onclick="openStoreDetailFromRow(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">杭州雅美口腔</div><div class="mp-store-contact">沈院长 · 138****3456</div><div class="mp-store-address">杭州市上城区庆春东路88号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-orange">待跟进</span><span class="mp-store-time">上次跟进：5天前</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" data-follow-click="ignore" onclick="event.stopPropagation();openStoreFollowUpFromButton(this)">记跟进</button><button class="mp-link-btn" data-follow-click="ignore" onclick="event.stopPropagation();showPage('company-map')">导航</button></div></div></div>
-<div class="mp-item mp-store-row" onclick="openStoreDetailFromRow(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">拱墅美康口腔</div><div class="mp-store-contact">吴院长 · 139****5632</div><div class="mp-store-address">杭州市拱墅区莫干山路188号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-teal">跟进中</span><span class="mp-store-time">最近跟进：昨日 14:05</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" data-follow-click="ignore" onclick="event.stopPropagation();openStoreFollowUpFromButton(this)">记跟进</button><button class="mp-link-btn" data-follow-click="ignore" onclick="event.stopPropagation();showPage('company-map')">导航</button></div></div></div>
-<div class="mp-item mp-store-row" onclick="openStoreDetailFromRow(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">上城同德口腔</div><div class="mp-store-contact">周主任 · 138****1209</div><div class="mp-store-address">杭州市上城区庆春路168号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-red">已签约</span><span class="mp-store-time">签约时间：2026-05-18</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" data-follow-click="ignore" onclick="event.stopPropagation();openStoreDetailFromButton(this)">详情</button><button class="mp-link-btn" data-follow-click="ignore" onclick="event.stopPropagation();showPage('company-map')">导航</button></div></div></div>
+<div class="mp-item mp-store-row" onclick="openStoreFollowUpFromButton(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">西湖美齿口腔</div><div class="mp-store-contact">刘医生 · 135****7788</div><div class="mp-store-address">杭州市西湖区黄龙路26号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-orange">待跟进</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" onclick="event.stopPropagation();openFollowUpModalFromCard(this)">跟进</button><button class="mp-icon-btn" onclick="event.stopPropagation();showPage('company-map')" title="导航"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0BD3D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></button></div></div></div>
+<div class="mp-item mp-store-row" onclick="openStoreFollowUpFromButton(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">杭州雅美口腔</div><div class="mp-store-contact">沈院长 · 138****3456</div><div class="mp-store-address">杭州市上城区庆春东路88号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-orange">待跟进</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" onclick="event.stopPropagation();openFollowUpModalFromCard(this)">跟进</button><button class="mp-icon-btn" onclick="event.stopPropagation();showPage('company-map')" title="导航"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0BD3D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></button></div></div></div>
+<div class="mp-item mp-store-row" onclick="openStoreFollowUpFromButton(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">拱墅美康口腔</div><div class="mp-store-contact">吴院长 · 139****5632</div><div class="mp-store-address">杭州市拱墅区莫干山路188号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-teal">跟进中</span><span class="mp-store-time">最近跟进：昨日 14:05</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" onclick="event.stopPropagation();openFollowUpModalFromCard(this)">跟进</button><button class="mp-icon-btn" onclick="event.stopPropagation();showPage('company-map')" title="导航"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0BD3D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></button></div></div></div>
+<div class="mp-item mp-store-row" onclick="openStoreFollowUpFromButton(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">上城同德口腔</div><div class="mp-store-contact">周主任 · 138****1209</div><div class="mp-store-address">杭州市上城区庆春路168号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-red">已签约</span><span class="mp-store-time">签约时间：2026-05-18</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" onclick="event.stopPropagation();openFollowUpModalFromCard(this)">跟进</button><button class="mp-icon-btn" onclick="event.stopPropagation();showPage('company-map')" title="导航"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0BD3D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></button></div></div></div>
 </div>
 </div>
 
-<div class="mp-store-panel active" id="store-pending">
+<div class="mp-store-panel" id="store-pending">
 <div class="mp-list">
-<div class="mp-item mp-store-row" onclick="openStoreDetailFromRow(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">西湖美齿口腔</div><div class="mp-store-contact">刘医生 · 135****7788</div><div class="mp-store-address">杭州市西湖区黄龙路26号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-orange">待跟进</span><span class="mp-store-time">今日 15:00 电话回访</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" data-follow-click="ignore" onclick="event.stopPropagation();openStoreFollowUpFromButton(this)">记跟进</button><button class="mp-link-btn" data-follow-click="ignore" onclick="event.stopPropagation();showPage('company-map')">导航</button></div></div></div>
-<div class="mp-item mp-store-row" onclick="openStoreDetailFromRow(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">杭州雅美口腔</div><div class="mp-store-contact">沈院长 · 138****3456</div><div class="mp-store-address">杭州市上城区庆春东路88号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-orange">待跟进</span><span class="mp-store-time">已 5 天未更新跟进</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" data-follow-click="ignore" onclick="event.stopPropagation();openStoreFollowUpFromButton(this)">记跟进</button><button class="mp-link-btn" data-follow-click="ignore" onclick="event.stopPropagation();showPage('company-map')">导航</button></div></div></div>
-<div class="mp-item mp-store-row" onclick="openStoreDetailFromRow(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">文三路齿科门诊</div><div class="mp-store-contact">赵医生 · 136****9012</div><div class="mp-store-address">杭州市西湖区学院路附近</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-orange">待跟进</span><span class="mp-store-time">明日 10:30 方案沟通</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" data-follow-click="ignore" onclick="event.stopPropagation();openStoreFollowUpFromButton(this)">记跟进</button><button class="mp-link-btn" data-follow-click="ignore" onclick="event.stopPropagation();showPage('company-map')">导航</button></div></div></div>
+<div class="mp-item mp-store-row" onclick="openStoreFollowUpFromButton(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">西湖美齿口腔</div><div class="mp-store-contact">刘医生 · 135****7788</div><div class="mp-store-address">杭州市西湖区黄龙路26号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-orange">待跟进</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" onclick="event.stopPropagation();openFollowUpModalFromCard(this)">跟进</button><button class="mp-icon-btn" onclick="event.stopPropagation();showPage('company-map')" title="导航"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0BD3D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></button></div></div></div>
+<div class="mp-item mp-store-row" onclick="openStoreFollowUpFromButton(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">杭州雅美口腔</div><div class="mp-store-contact">沈院长 · 138****3456</div><div class="mp-store-address">杭州市上城区庆春东路88号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-orange">待跟进</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" onclick="event.stopPropagation();openFollowUpModalFromCard(this)">跟进</button><button class="mp-icon-btn" onclick="event.stopPropagation();showPage('company-map')" title="导航"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0BD3D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></button></div></div></div>
+<div class="mp-item mp-store-row" onclick="openStoreFollowUpFromButton(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">文三路齿科门诊</div><div class="mp-store-contact">赵医生 · 136****9012</div><div class="mp-store-address">杭州市西湖区学院路附近</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-orange">待跟进</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" onclick="event.stopPropagation();openFollowUpModalFromCard(this)">跟进</button><button class="mp-icon-btn" onclick="event.stopPropagation();showPage('company-map')" title="导航"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0BD3D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></button></div></div></div>
 </div>
 </div>
 
 <div class="mp-store-panel" id="store-following">
 <div class="mp-list">
-<div class="mp-item mp-store-row" onclick="openStoreDetailFromRow(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">拱墅美康口腔</div><div class="mp-store-contact">吴院长 · 139****5632</div><div class="mp-store-address">杭州市拱墅区莫干山路188号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-teal">跟进中</span><span class="mp-store-time">已提交保障方案，等待院长反馈</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" data-follow-click="ignore" onclick="event.stopPropagation();openStoreFollowUpFromButton(this)">记跟进</button><button class="mp-link-btn" data-follow-click="ignore" onclick="event.stopPropagation();showPage('company-map')">导航</button></div></div></div>
-<div class="mp-item mp-store-row" onclick="openStoreDetailFromRow(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">滨江微笑口腔</div><div class="mp-store-contact">王主任 · 138****8888</div><div class="mp-store-address">杭州市滨江区江南大道1288号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-teal">跟进中</span><span class="mp-store-time">今日刚认领，待首次沟通</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" data-follow-click="ignore" onclick="event.stopPropagation();openStoreFollowUpFromButton(this)">记跟进</button><button class="mp-link-btn" data-follow-click="ignore" onclick="event.stopPropagation();showPage('company-map')">导航</button></div></div></div>
+<div class="mp-item mp-store-row" onclick="openStoreFollowUpFromButton(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">拱墅美康口腔</div><div class="mp-store-contact">吴院长 · 139****5632</div><div class="mp-store-address">杭州市拱墅区莫干山路188号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-teal">跟进中</span><span class="mp-store-time">已提交保障方案，等待院长反馈</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" onclick="event.stopPropagation();openFollowUpModalFromCard(this)">跟进</button><button class="mp-icon-btn" onclick="event.stopPropagation();showPage('company-map')" title="导航"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0BD3D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></button></div></div></div>
+<div class="mp-item mp-store-row" onclick="openStoreFollowUpFromButton(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">滨江微笑口腔</div><div class="mp-store-contact">王主任 · 138****8888</div><div class="mp-store-address">杭州市滨江区江南大道1288号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-teal">跟进中</span><span class="mp-store-time">今日刚认领，待首次沟通</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" onclick="event.stopPropagation();openFollowUpModalFromCard(this)">跟进</button><button class="mp-icon-btn" onclick="event.stopPropagation();showPage('company-map')" title="导航"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0BD3D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></button></div></div></div>
 </div>
 </div>
 
 <div class="mp-store-panel" id="store-signed">
 <div class="mp-list">
-<div class="mp-item mp-store-row" onclick="openStoreDetailFromRow(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">上城同德口腔</div><div class="mp-store-contact">周主任 · 138****1209</div><div class="mp-store-address">杭州市上城区庆春路168号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-red">已签约</span><span class="mp-store-time">签约时间：2026-05-18</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" data-follow-click="ignore" onclick="event.stopPropagation();openStoreDetailFromButton(this)">详情</button><button class="mp-link-btn" data-follow-click="ignore" onclick="event.stopPropagation();showPage('company-map')">导航</button></div></div></div>
-<div class="mp-item mp-store-row" onclick="openStoreDetailFromRow(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">北京微笑口腔诊所</div><div class="mp-store-contact">张院长 · 137****5678</div><div class="mp-store-address">北京市朝阳区建国路88号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-red">已签约</span><span class="mp-store-time">签约时间：2026-01-15</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" data-follow-click="ignore" onclick="event.stopPropagation();openStoreDetailFromButton(this)">详情</button><button class="mp-link-btn" data-follow-click="ignore" onclick="event.stopPropagation();showPage('company-map')">导航</button></div></div></div>
+<div class="mp-item mp-store-row" onclick="openStoreFollowUpFromButton(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">上城同德口腔</div><div class="mp-store-contact">周主任 · 138****1209</div><div class="mp-store-address">杭州市上城区庆春路168号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-red">已签约</span><span class="mp-store-time">签约时间：2026-05-18</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" onclick="event.stopPropagation();openFollowUpModalFromCard(this)">跟进</button><button class="mp-icon-btn" onclick="event.stopPropagation();showPage('company-map')" title="导航"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0BD3D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></button></div></div></div>
+<div class="mp-item mp-store-row" onclick="openStoreFollowUpFromButton(this)"><div class="mp-row"><div class="mp-store-info"><div class="mp-title">北京微笑口腔诊所</div><div class="mp-store-contact">张院长 · 137****5678</div><div class="mp-store-address">北京市朝阳区建国路88号</div><div class="mp-store-status-line"><span class="mp-tag mp-tag-red">已签约</span><span class="mp-store-time">签约时间：2026-01-15</span></div></div><div class="mp-store-actions"><button class="mp-btn-sm" onclick="event.stopPropagation();openFollowUpModalFromCard(this)">跟进</button><button class="mp-icon-btn" onclick="event.stopPropagation();showPage('company-map')" title="导航"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0BD3D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></button></div></div></div>
 </div>
 </div>
 </div>
@@ -1044,13 +1086,9 @@ table tr:hover td{background:#FAFAFB}
 <div class="mp-store-contract-row"><span>合作模式</span><span id="store-contract-mode">门诊预存 + 按单扣费</span></div>
 </div>
 <div class="mp-section">跟进记录 <span class="mp-mini-label">最近 3 条</span></div>
-<div class="mp-store-detail-records" id="store-detail-record-list">
-<div class="mp-store-detail-record"><div class="mp-store-detail-record-top"><span>电话沟通</span><span>今日 10:40</span></div><div class="mp-store-detail-record-text">已发送合作要点，约定下午继续沟通。</div></div>
-<div class="mp-store-detail-record"><div class="mp-store-detail-record-top"><span>微信沟通</span><span>05-21 16:30</span></div><div class="mp-store-detail-record-text">对方关注理赔时效和门诊结算方式。</div></div>
-<div class="mp-store-detail-record"><div class="mp-store-detail-record-top"><span>到店沟通</span><span>05-20 14:10</span></div><div class="mp-store-detail-record-text">完成初访，院长认可保障方案价值。</div></div>
+<div class="mp-store-detail-records" id="store-detail-record-list"></div>
 </div>
-</div>
-<div class="modal-footer"><button class="btn" onclick="storeDetailGoFollowUp()">记跟进</button><button class="btn btn-primary" onclick="closeModal('modal-store-detail');showPage('company-map')">导航</button></div>
+<div class="modal-footer" style="gap:10px"><button class="btn btn-primary" style="flex:1" onclick="openModal('modal-add-follow-up')">跟进</button><button class="mp-icon-btn" onclick="closeModal('modal-store-detail');showPage('company-map')" title="导航"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0BD3D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></button></div>
 </div>
 </div>
 <div class="modal-overlay" id="modal-contract-preview">
@@ -1072,6 +1110,7 @@ table tr:hover td{background:#FAFAFB}
 </div>
 </div>
 </div>
+</div>
 
 <!-- ==================== 公司端 - 地图 ==================== -->
 <div class="page" id="page-company-map">
@@ -1088,17 +1127,22 @@ table tr:hover td{background:#FAFAFB}
 <div class="mp-map-road r3"></div>
 <div class="mp-map-river"></div>
 <div class="mp-map-user"></div>
-<button class="map-marker green" style="left:72px;top:238px" onclick="openMapClinicDetail('map-untouched', this, '杭州瑞康口腔', '文三路88号 · 0.8km', '未接触', '李医生 · 139****6666', '附近优先拜访，暂无跟进人')"><span class="pin-dot"></span><span class="pin-label">瑞康口腔</span></button>
-<button class="map-marker green selected" style="left:142px;top:296px" onclick="openMapClinicDetail('map-pending', this, '西湖美齿口腔', '黄龙路26号 · 1.2km', '待跟进', '刘医生 · 135****7788', '今日 15:00 电话回访')"><span class="pin-dot"></span><span class="pin-label">西湖美齿</span></button>
-<button class="map-marker yellow" style="left:222px;top:258px" onclick="openMapClinicDetail('map-following', this, '拱墅美康口腔', '莫干山路188号 · 2.4km', '跟进中', '吴院长 · 139****5632', '已提交保障方案，等待院长反馈')"><span class="pin-dot"></span><span class="pin-label">拱墅美康</span></button>
-<button class="map-marker yellow" style="left:286px;top:360px" onclick="openMapClinicDetail('map-following', this, '杭州雅美口腔', '庆春东路88号 · 1.8km', '跟进中', '沈院长 · 138****3456', '明日 10:30 方案沟通')"><span class="pin-dot"></span><span class="pin-label">雅美口腔</span></button>
-<button class="map-marker red" style="left:93px;top:412px" onclick="openMapClinicDetail('map-signed', this, '上城同德口腔', '庆春路168号 · 3.1km', '已签约', '赵主任 · 136****9012', '2026-05-18 已签约')"><span class="pin-dot"></span><span class="pin-label">同德口腔</span></button>
-<button class="map-marker rejected" style="left:262px;top:466px" onclick="openMapClinicDetail('map-rejected', this, '城西拒访口腔门诊', '古墩路附近 · 2.9km', '拒绝合作', '未留联系人', '价格原因暂不合作，已记录拒绝原因')"><span class="pin-dot"></span><span class="pin-label">城西拒访</span></button>
+<button class="map-marker green selected" data-zoom="0" style="left:142px;top:296px" onclick="openMapClinicDetail('map-pending', this, '西湖美齿口腔', '黄龙路26号 · 1.2km', '待跟进', '刘医生 · 135****7788', '今日 15:00 电话回访')"><span class="pin-dot"></span><span class="pin-label">西湖美齿</span></button>
+<button class="map-marker green" data-zoom="0" style="left:52px;top:410px" onclick="openMapClinicDetail('map-pending', this, '杭州雅美口腔', '庆春东路88号 · 1.8km', '待跟进', '沈院长 · 138****3456', '明日 10:30 方案沟通')"><span class="pin-dot"></span><span class="pin-label">雅美口腔</span></button>
+<button class="map-marker green" data-zoom="1" style="left:26px;top:195px" onclick="openMapClinicDetail('map-pending', this, '文三路齿科门诊', '学院路附近 · 0.6km', '待跟进', '赵医生 · 136****9012', '待首次跟进')"><span class="pin-dot"></span><span class="pin-label">文三路齿科</span></button>
+<button class="map-marker green" data-zoom="2" style="left:178px;top:155px" onclick="openMapClinicDetail('map-pending', this, '滨江微笑口腔', '江南大道1288号 · 2.2km', '待跟进', '王主任 · 138****8888', '新认领待跟进')"><span class="pin-dot"></span><span class="pin-label">滨江微笑</span></button>
+<button class="map-marker orange" data-zoom="0" style="left:222px;top:258px" onclick="openMapClinicDetail('map-following', this, '拱墅美康口腔', '莫干山路188号 · 2.4km', '跟进中', '吴院长 · 139****5632', '已提交保障方案，等待院长反馈')"><span class="pin-dot"></span><span class="pin-label">拱墅美康</span></button>
+<button class="map-marker orange" data-zoom="1" style="left:310px;top:200px" onclick="openMapClinicDetail('map-following', this, '杭州瑞康口腔', '文三路88号 · 0.8km', '跟进中', '李医生 · 139****6666', '方案沟通中')"><span class="pin-dot"></span><span class="pin-label">瑞康口腔</span></button>
+<button class="map-marker red" data-zoom="0" style="left:93px;top:412px" onclick="openMapClinicDetail('map-signed', this, '上城同德口腔', '庆春路168号 · 3.1km', '已签约', '赵主任 · 136****9012', '2026-05-18 已签约')"><span class="pin-dot"></span><span class="pin-label">同德口腔</span></button>
+<button class="map-marker red" data-zoom="1" style="left:280px;top:430px" onclick="openMapClinicDetail('map-signed', this, '北京微笑口腔诊所', '建国路88号 · 4.2km', '已签约', '张院长 · 137****5678', '2026-01-15 已签约')"><span class="pin-dot"></span><span class="pin-label">微笑口腔</span></button>
+<button class="map-marker gray" data-zoom="0" style="left:262px;top:466px" onclick="openMapClinicDetail('map-nointent', this, '城西拒访口腔门诊', '古墩路附近 · 2.9km', '无合作意向', '未留联系人', '价格原因暂不合作，已记录拒绝原因')"><span class="pin-dot"></span><span class="pin-label">城西拒访</span></button>
+<button class="map-marker gray" data-zoom="2" style="left:38px;top:130px" onclick="openMapClinicDetail('map-nointent', this, '九堡仁爱口腔', '九堡镇 · 5.6km', '无合作意向', '陈医生 · 137****2233', '距离太远暂不考虑')"><span class="pin-dot"></span><span class="pin-label">九堡仁爱</span></button>
 </div>
 
 <button class="mp-map-icon-btn mp-map-locate-floating" title="当前定位" onclick="resetMapView();toast('已定位到当前位置','success')">⌖</button>
+<div class="mp-map-zoom"><button class="zoom-in" onclick="mapZoomIn()" title="放大">+</button><button class="zoom-out" onclick="mapZoomOut()" title="缩小">−</button></div>
 
-<div class="mp-map-legend"><span><i class="green"></i>未接触</span><span><i class="yellow"></i>跟进中</span><span><i class="red"></i>已签约</span><span><i class="gray"></i>拒绝合作</span></div>
+<div class="mp-map-legend"><span><i class="green"></i>待跟进</span><span><i class="orange"></i>跟进中</span><span><i class="red"></i>已签约</span><span><i class="gray"></i>无合作意向</span></div>
 
 <div class="mp-map-sheet" id="map-sheet">
 <div class="mp-map-sheet-handle"></div>
@@ -1107,30 +1151,31 @@ table tr:hover td{background:#FAFAFB}
 <button class="mp-map-icon-btn muted" id="map-sheet-toggle" title="展开列表" onclick="toggleMapSheet()">⌃</button>
 </div>
 <div id="map-filter-body" class="mp-map-filter-body">
-<div class="mp-map-filter-inline"><select class="mp-map-select" id="map-distance-select"><option>1km内</option><option selected>3km内</option><option>5km内</option><option>10km内</option></select><select class="mp-map-select" id="map-status-select" onchange="showMapPanel(this.value)"><option value="map-pending" selected>待跟进</option><option value="map-all">全部状态</option><option value="map-untouched">未接触</option><option value="map-following">跟进中</option><option value="map-signed">已签约</option><option value="map-rejected">拒绝合作</option></select></div>
+<div class="mp-map-filter-inline"><select class="mp-map-select" id="map-distance-select"><option>1km内</option><option selected>3km内</option><option>5km内</option><option>10km内</option></select><select class="mp-map-select" id="map-status-select" onchange="showMapPanel(this.value)"><option value="map-all" selected>全部</option><option value="map-pending">待跟进</option><option value="map-following">跟进中</option><option value="map-signed">已签约</option><option value="map-nointent">无合作意向</option></select></div>
 <div class="mp-map-filter-row"><div class="mp-map-region-cascade"><select class="mp-map-select" id="map-region-province" onchange="syncMapRegionCascade()"><option>浙江省</option></select><select class="mp-map-select" id="map-region-city" onchange="syncMapRegionCascade()"><option>杭州市</option></select><select class="mp-map-select" id="map-region-district"><option selected>西湖区</option><option>拱墅区</option><option>上城区</option></select></div></div>
 </div>
 <div class="mp-map-list">
-<div class="mp-map-panel-list active" id="map-pending">
-<button class="mp-map-clinic selected" onclick="openMapClinicDetail('map-pending', null, '西湖美齿口腔', '黄龙路26号 · 1.2km', '待跟进', '刘医生 · 135****7788', '今日 15:00 电话回访')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">西湖美齿口腔</span><span class="mp-tag mp-tag-orange">待跟进</span></div><div class="mp-map-clinic-address">黄龙路26号 · 1.2km · 今日 15:00</div><div class="mp-map-clinic-meta"><span class="mp-tag mp-tag-gray">我的认领</span><span class="mp-mini-label">上次跟进 5天前</span></div></button>
-<button class="mp-map-clinic" onclick="openMapClinicDetail('map-pending', null, '杭州雅美口腔', '庆春东路88号 · 1.8km', '待跟进', '沈院长 · 138****3456', '明日 10:30 方案沟通')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">杭州雅美口腔</span><span class="mp-tag mp-tag-orange">待跟进</span></div><div class="mp-map-clinic-address">庆春东路88号 · 1.8km · 明日 10:30</div><div class="mp-map-clinic-meta"><span class="mp-tag mp-tag-gray">我的认领</span><span class="mp-mini-label">方案沟通</span></div></button>
+<div class="mp-map-panel-list active" id="map-all">
+<button class="mp-map-clinic" onclick="openMapClinicDetail('map-pending', null, '西湖美齿口腔', '黄龙路26号 · 1.2km', '待跟进', '刘医生 · 135****7788', '今日 15:00 电话回访')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">西湖美齿口腔</span><span class="mp-tag mp-tag-orange">待跟进</span></div><div class="mp-map-clinic-address">黄龙路26号 · 1.2km</div></button>
+<button class="mp-map-clinic" onclick="openMapClinicDetail('map-pending', null, '杭州雅美口腔', '庆春东路88号 · 1.8km', '待跟进', '沈院长 · 138****3456', '明日 10:30 方案沟通')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">杭州雅美口腔</span><span class="mp-tag mp-tag-orange">待跟进</span></div><div class="mp-map-clinic-address">庆春东路88号 · 1.8km</div></button>
+<button class="mp-map-clinic" onclick="openMapClinicDetail('map-following', null, '拱墅美康口腔', '莫干山路188号 · 2.4km', '跟进中', '吴院长 · 139****5632', '已提交保障方案，等待院长反馈')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">拱墅美康口腔</span><span class="mp-tag mp-tag-teal">跟进中</span></div><div class="mp-map-clinic-address">莫干山路188号 · 2.4km</div></button>
+<button class="mp-map-clinic" onclick="openMapClinicDetail('map-signed', null, '上城同德口腔', '庆春路168号 · 3.1km', '已签约', '赵主任 · 136****9012', '2026-05-18 已签约')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">上城同德口腔</span><span class="mp-tag mp-tag-red">已签约</span></div><div class="mp-map-clinic-address">庆春路168号 · 3.1km</div></button>
+<button class="mp-map-clinic" onclick="openMapClinicDetail('map-nointent', null, '城西拒访口腔门诊', '古墩路附近 · 2.9km', '无合作意向', '未留联系人', '价格原因暂不合作')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">城西拒访口腔门诊</span><span class="mp-tag mp-tag-gray">无合作意向</span></div><div class="mp-map-clinic-address">古墩路附近 · 2.9km</div></button>
 </div>
-<div class="mp-map-panel-list" id="map-all">
-<button class="mp-map-clinic" onclick="openMapClinicDetail('map-all', null, '杭州瑞康口腔', '文三路88号 · 0.8km', '未接触', '李医生 · 139****6666', '附近优先拜访，暂无跟进人')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">杭州瑞康口腔</span><span class="mp-tag mp-tag-teal">未接触</span></div><div class="mp-map-clinic-address">文三路88号 · 0.8km</div></button>
-<button class="mp-map-clinic" onclick="openMapClinicDetail('map-all', null, '拱墅美康口腔', '莫干山路188号 · 2.4km', '跟进中', '吴院长 · 139****5632', '已提交保障方案，等待院长反馈')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">拱墅美康口腔</span><span class="mp-tag mp-tag-orange">跟进中</span></div><div class="mp-map-clinic-address">莫干山路188号 · 2.4km</div></button>
-<button class="mp-map-clinic" onclick="openMapClinicDetail('map-all', null, '城西拒访口腔门诊', '古墩路附近 · 2.9km', '拒绝合作', '未留联系人', '价格原因暂不合作，已记录拒绝原因')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">城西拒访口腔门诊</span><span class="mp-tag mp-tag-gray">拒绝合作</span></div><div class="mp-map-clinic-address">古墩路附近 · 2.9km · 价格原因暂不合作</div></button>
-</div>
-<div class="mp-map-panel-list" id="map-untouched">
-<button class="mp-map-clinic" onclick="openMapClinicDetail('map-untouched', null, '杭州瑞康口腔', '文三路88号 · 0.8km', '未接触', '李医生 · 139****6666', '附近优先拜访，暂无跟进人')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">杭州瑞康口腔</span><span class="mp-tag mp-tag-teal">未接触</span></div><div class="mp-map-clinic-address">文三路88号 · 0.8km · 附近优先拜访</div></button>
+<div class="mp-map-panel-list" id="map-pending">
+<button class="mp-map-clinic" onclick="openMapClinicDetail('map-pending', null, '西湖美齿口腔', '黄龙路26号 · 1.2km', '待跟进', '刘医生 · 135****7788', '今日 15:00 电话回访')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">西湖美齿口腔</span><span class="mp-tag mp-tag-orange">待跟进</span></div><div class="mp-map-clinic-address">黄龙路26号 · 1.2km</div></button>
+<button class="mp-map-clinic" onclick="openMapClinicDetail('map-pending', null, '杭州雅美口腔', '庆春东路88号 · 1.8km', '待跟进', '沈院长 · 138****3456', '明日 10:30 方案沟通')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">杭州雅美口腔</span><span class="mp-tag mp-tag-orange">待跟进</span></div><div class="mp-map-clinic-address">庆春东路88号 · 1.8km</div></button>
 </div>
 <div class="mp-map-panel-list" id="map-following">
-<button class="mp-map-clinic" onclick="openMapClinicDetail('map-following', null, '拱墅美康口腔', '莫干山路188号 · 2.4km', '跟进中', '吴院长 · 139****5632', '已提交保障方案，等待院长反馈')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">拱墅美康口腔</span><span class="mp-tag mp-tag-orange">跟进中</span></div><div class="mp-map-clinic-address">莫干山路188号 · 已提交保障方案</div></button>
+<button class="mp-map-clinic" onclick="openMapClinicDetail('map-following', null, '拱墅美康口腔', '莫干山路188号 · 2.4km', '跟进中', '吴院长 · 139****5632', '已提交保障方案，等待院长反馈')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">拱墅美康口腔</span><span class="mp-tag mp-tag-teal">跟进中</span></div><div class="mp-map-clinic-address">莫干山路188号 · 2.4km</div></button>
+<button class="mp-map-clinic" onclick="openMapClinicDetail('map-following', null, '杭州瑞康口腔', '文三路88号 · 0.8km', '跟进中', '李医生 · 139****6666', '方案沟通中')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">杭州瑞康口腔</span><span class="mp-tag mp-tag-teal">跟进中</span></div><div class="mp-map-clinic-address">文三路88号 · 0.8km</div></button>
 </div>
 <div class="mp-map-panel-list" id="map-signed">
 <button class="mp-map-clinic" onclick="openMapClinicDetail('map-signed', null, '上城同德口腔', '庆春路168号 · 3.1km', '已签约', '赵主任 · 136****9012', '2026-05-18 已签约')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">上城同德口腔</span><span class="mp-tag mp-tag-red">已签约</span></div><div class="mp-map-clinic-address">庆春路168号 · 2026-05-18签约</div></button>
+<button class="mp-map-clinic" onclick="openMapClinicDetail('map-signed', null, '北京微笑口腔诊所', '建国路88号 · 4.2km', '已签约', '张院长 · 137****5678', '2026-01-15 已签约')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">北京微笑口腔诊所</span><span class="mp-tag mp-tag-red">已签约</span></div><div class="mp-map-clinic-address">建国路88号 · 2026-01-15签约</div></button>
 </div>
-<div class="mp-map-panel-list" id="map-rejected">
-<button class="mp-map-clinic" onclick="openMapClinicDetail('map-rejected', null, '城西拒访口腔门诊', '古墩路附近 · 2.9km', '拒绝合作', '未留联系人', '价格原因暂不合作，已记录拒绝原因')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">城西拒访口腔门诊</span><span class="mp-tag mp-tag-gray">拒绝合作</span></div><div class="mp-map-clinic-address">古墩路附近 · 2.9km · 已记录拒绝原因</div></button>
+<div class="mp-map-panel-list" id="map-nointent">
+<button class="mp-map-clinic" onclick="openMapClinicDetail('map-nointent', null, '城西拒访口腔门诊', '古墩路附近 · 2.9km', '无合作意向', '未留联系人', '价格原因暂不合作')"><div class="mp-map-clinic-top"><span class="mp-map-clinic-name">城西拒访口腔门诊</span><span class="mp-tag mp-tag-gray">无合作意向</span></div><div class="mp-map-clinic-address">古墩路附近 · 2.9km</div></button>
 </div>
 </div>
 </div>
@@ -1231,12 +1276,12 @@ table tr:hover td{background:#FAFAFB}
 </div>
 </div>
 
-<!-- ==================== 公司端 - 门店跟进 ==================== -->
+<!-- ==================== 公司端 - 门店详情 ==================== -->
 <div class="page" id="page-company-store-follow-up">
 <div class="mp-phone">
 <div class="mp-notch"></div>
 <div class="mp-statusbar"><span>9:41</span><span>📶 🔋</span></div>
-<div class="mp-navbar"><span class="mp-nav-back" onclick="showPage('company-store')">‹</span><span class="mp-nav-title">门店跟进</span></div>
+<div class="mp-navbar"><span class="mp-nav-back" onclick="showPage('company-store')">‹</span><span class="mp-nav-title">门店详情</span></div>
 <div class="mp-body">
 <div class="mp-px">
 <div class="mp-follow-summary">
@@ -1244,13 +1289,9 @@ table tr:hover td{background:#FAFAFB}
 <div class="mp-store-status-line" style="margin-top:10px"><span class="mp-tag mp-tag-orange" id="store-follow-up-status">待跟进</span><span class="mp-store-time" id="store-follow-up-next">下次跟进：今日 15:00 电话回访</span></div>
 </div>
 <div class="mp-opportunity-meta"><span>跟进记录按时间倒序展示</span><span>当前商务 · 张明</span></div>
-<div class="mp-section">跟进记录 <span class="mp-mini-label" id="store-follow-up-count">共 3 条</span></div>
-<div class="mp-follow-timeline" id="store-follow-up-record-list">
-<div class="mp-follow-record"><span class="mp-follow-dot"></span><div class="mp-follow-record-body"><div class="mp-follow-record-head"><span class="mp-follow-method">电话沟通</span><span class="mp-follow-time">今日 10:40</span></div><div class="mp-follow-content">确认院长下午方便接听，已发送种植牙保障险合作要点，约定 15:00 继续沟通。</div></div></div>
-<div class="mp-follow-record"><span class="mp-follow-dot"></span><div class="mp-follow-record-body"><div class="mp-follow-record-head"><span class="mp-follow-method">微信沟通</span><span class="mp-follow-time">05-21 16:30</span></div><div class="mp-follow-content">补充发送服务流程图，对方关注理赔时效和门诊结算方式。</div></div></div>
-<div class="mp-follow-record"><span class="mp-follow-dot"></span><div class="mp-follow-record-body"><div class="mp-follow-record-head"><span class="mp-follow-method">到店沟通</span><span class="mp-follow-time">05-20 14:10</span></div><div class="mp-follow-content">完成门店初访，院长认可保障方案价值，需要内部评估合作费用。</div></div></div>
-</div>
-<div class="mp-follow-fixed-action"><button class="btn" onclick="openModal('modal-add-follow-up')">新增记录</button><button class="btn btn-primary" onclick="openSignInvite()">开始签约</button></div>
+<div class="mp-section">跟进记录 <span class="mp-mini-label" id="store-follow-up-count">共 0 条</span></div>
+<div class="mp-follow-timeline" id="store-follow-up-record-list"></div>
+<div class="mp-follow-fixed-action" id="store-detail-actions"><button class="btn" onclick="openModal('modal-add-follow-up')">新增记录</button><button class="btn btn-primary" onclick="goSignInvitePage()">开始签约</button></div>
 </div>
 </div>
 <div class="mp-tabbar">
@@ -1259,35 +1300,6 @@ table tr:hover td{background:#FAFAFB}
 <div class="mp-tab" onclick="showPage('company-map')"><span class="mp-tab-icon">🗺️</span>地图</div>
 <div class="mp-tab active" onclick="showPage('company-store')"><span class="mp-tab-icon">🏥</span>门店</div>
 <div class="mp-tab" onclick="showPage('company-profile')"><span class="mp-tab-icon">👤</span>我的</div>
-</div>
-<div class="modal-overlay" id="modal-add-follow-up">
-<div class="modal">
-<div class="modal-header"><h3>新增跟进记录</h3><button class="modal-close" onclick="closeModal('modal-add-follow-up')">×</button></div>
-<div class="modal-body">
-<div class="form-row"><div class="form-label"><span class="req">*</span>跟进方式</div><div class="form-control"><select id="follow-up-method"><option>到店</option><option selected>电话</option><option>微信</option><option>其他</option></select></div></div>
-<div class="form-row"><div class="form-label"><span class="req">*</span>跟进内容</div><div class="form-control"><textarea id="follow-up-content" placeholder="请记录本次沟通内容、对方关注点和下一步动作"></textarea></div></div>
-</div>
-<div class="modal-footer"><button class="btn" onclick="closeModal('modal-add-follow-up')">取消</button><button class="btn btn-primary" onclick="saveStoreFollowUp()">保存记录</button></div>
-</div>
-</div>
-<div class="modal-overlay" id="modal-sign-invite">
-<div class="modal">
-<div class="modal-header"><h3>签约邀请</h3><button class="modal-close" onclick="closeModal('modal-sign-invite')">×</button></div>
-<div class="modal-body">
-<div class="mp-sign-invite-card">
-<div class="mp-sign-invite-row"><span>门店名称</span><span id="sign-invite-store-name">西湖美齿口腔</span></div>
-<div class="mp-sign-invite-row"><span>联系人</span><span id="sign-invite-store-contact">刘医生 · 135****7788</span></div>
-<div class="mp-sign-invite-row"><span>门店地址</span><span id="sign-invite-store-address">杭州市西湖区黄龙路26号</span></div>
-<div class="mp-sign-invite-row"><span>当前商务</span><span id="sign-invite-sales">张明 · 杭州三区拓展组</span></div>
-</div>
-<div class="mp-sign-qr-wrap">
-<div class="mp-sign-qr" id="sign-invite-qrcode" title="签约邀请二维码"><i></i></div>
-<div><div class="mp-section" style="margin-bottom:6px">扫码或转发链接</div><div class="mp-mini-label" id="sign-invite-token">邀请编号：SIGN-000000</div><div class="mp-mini-label" style="margin-top:4px">门店打开后进入独立签约流程页面。</div></div>
-</div>
-<div class="mp-sign-link-box" id="sign-invite-link" onclick="openSignFlowFromInvite()">https://qa.vm.com/lingxi-dental/sign-flow</div>
-</div>
-<div class="modal-footer"><button class="btn" onclick="copySignInviteLink()">复制链接</button><button class="btn btn-primary" onclick="openSignFlowFromInvite()">进入签约流程</button></div>
-</div>
 </div>
 </div>
 </div>
@@ -1787,7 +1799,7 @@ table tr:hover td{background:#FAFAFB}
 <div class="is-row"><span class="is-label">合同编号</span><span class="is-value">CT20260528001</span></div>
 </div>
 <div style="padding:14px">
-<button class="mp-share-btn wx" style="border-radius:8px;font-size:15px;width:100%" onclick="showPage('clinic-dashboard')">返回门诊首页</button>
+<button class="mp-share-btn wx" style="border-radius:8px;font-size:15px;width:100%" onclick="openStoreContractPreview()">查看合同</button>
 </div>
 </div>
 
@@ -2954,6 +2966,21 @@ table tr:hover td{background:#FAFAFB}
 </div><!-- end main -->
 </div><!-- end layout -->
 
+<!-- 新增跟进记录（全局弹窗） -->
+<div class="modal-overlay" id="modal-add-follow-up">
+<div class="modal">
+<div class="modal-header"><h3>新增跟进记录</h3><button class="modal-close" onclick="closeModal('modal-add-follow-up')">×</button></div>
+<div class="modal-body">
+<div class="form-row"><div class="form-label"><span class="req">*</span>跟进方式</div><div class="form-control"><select id="follow-up-method"><option>到店</option><option selected>电话</option><option>微信</option><option>其他</option></select></div></div>
+<div class="form-row"><div class="form-label"><span class="req">*</span>跟进时间</div><div class="form-control"><input type="datetime-local" id="follow-up-time" value=""></div></div>
+<div class="form-row"><div class="form-label"><span class="req">*</span>跟进内容</div><div class="form-control"><textarea id="follow-up-content" placeholder="请记录本次沟通内容、对方关注点和下一步动作"></textarea></div></div>
+<div class="form-row"><div class="form-label"></div><div class="form-control"><label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;color:#8C8E98"><input type="checkbox" id="follow-up-no-intent" onchange="toggleNoIntentReason()" style="width:16px;height:16px;accent-color:#0BD3D3">无合作意向</label></div></div>
+<div class="form-row" id="follow-up-no-intent-row" style="display:none"><div class="form-label"><span class="req">*</span>无合作意向原因</div><div class="form-control"><textarea id="follow-up-no-intent-reason" placeholder="请填写无合作意向的原因"></textarea></div></div>
+</div>
+<div class="modal-footer"><button class="btn" onclick="closeModal('modal-add-follow-up')">取消</button><button class="btn btn-primary" onclick="saveStoreFollowUp()">保存记录</button></div>
+</div>
+</div>
+
 <!-- Toast -->
 <div class="toast-wrap" id="toast-wrap"></div>
 
@@ -3136,6 +3163,18 @@ function openStoreDetail(info) {
     statusEl.className = 'mp-tag ' + storeStatusClass(info.status);
   }
   updateStoreContractInfo(info);
+  // 根据状态设置跟进记录
+  var recordList = document.getElementById('store-detail-record-list');
+  if (recordList) {
+    if (info.status === '待跟进') {
+      recordList.innerHTML = '<div style="text-align:center;padding:16px;color:#8C8E98;font-size:12px">暂无跟进记录</div>';
+    } else {
+      recordList.innerHTML =
+        '<div class="mp-store-detail-record"><div class="mp-store-detail-record-top"><span>电话沟通</span><span>今日 10:40</span></div><div class="mp-store-detail-record-text">已发送合作要点，约定下午继续沟通。</div></div>' +
+        '<div class="mp-store-detail-record"><div class="mp-store-detail-record-top"><span>微信沟通</span><span>05-21 16:30</span></div><div class="mp-store-detail-record-text">对方关注理赔时效和门诊结算方式。</div></div>' +
+        '<div class="mp-store-detail-record"><div class="mp-store-detail-record-top"><span>到店沟通</span><span>05-20 14:10</span></div><div class="mp-store-detail-record-text">完成初访，院长认可保障方案价值。</div></div>';
+    }
+  }
   openModal('modal-store-detail');
 }
 
@@ -3152,6 +3191,24 @@ function openStoreFollowUpFromButton(button) {
   if (!row) return;
   var info = getStoreInfoFromRow(row);
   openStoreFollowUp(info.name, info.contact, info.address, info.status);
+}
+
+function openFollowUpModalFromCard(button) {
+  var row = button.closest('.mp-store-row');
+  if (!row) return;
+  var info = getStoreInfoFromRow(row);
+  currentStoreFollowUp = { name: info.name, contact: info.contact, address: info.address, status: info.status };
+  var content = document.getElementById('follow-up-content');
+  if (content) content.value = '';
+  var timeInput = document.getElementById('follow-up-time');
+  if (timeInput) timeInput.value = '';
+  var noIntentCb = document.getElementById('follow-up-no-intent');
+  if (noIntentCb) noIntentCb.checked = false;
+  var noIntentReason = document.getElementById('follow-up-no-intent-reason');
+  if (noIntentReason) noIntentReason.value = '';
+  var noIntentRow = document.getElementById('follow-up-no-intent-row');
+  if (noIntentRow) noIntentRow.style.display = 'none';
+  openModal('modal-add-follow-up');
 }
 
 function openStoreFollowUp(name, contact, address, status) {
@@ -3174,6 +3231,34 @@ function openStoreFollowUp(name, contact, address, status) {
   if (next) next.textContent = status === '跟进中' ? '下一步：跟进方案反馈' : '下次跟进：今日 15:00 电话回访';
   var content = document.getElementById('follow-up-content');
   if (content) content.value = '';
+  // 根据状态设置跟进记录
+  var recordList = document.getElementById('store-follow-up-record-list');
+  var countNum = document.getElementById('store-follow-up-count-num');
+  var countText = document.getElementById('store-follow-up-count');
+  if (recordList) {
+    if (status === '待跟进') {
+      recordList.innerHTML = '';
+      if (countNum) countNum.textContent = '0';
+      if (countText) countText.textContent = '共 0 条';
+    } else {
+      recordList.innerHTML =
+        '<div class="mp-follow-record"><span class="mp-follow-dot"></span><div class="mp-follow-record-body"><div class="mp-follow-record-head"><span class="mp-follow-method">电话沟通</span><span class="mp-follow-time">今日 10:40</span></div><div class="mp-follow-content">确认院长下午方便接听，已发送种植牙保障险合作要点，约定 15:00 继续沟通。</div></div></div>' +
+        '<div class="mp-follow-record"><span class="mp-follow-dot"></span><div class="mp-follow-record-body"><div class="mp-follow-record-head"><span class="mp-follow-method">微信沟通</span><span class="mp-follow-time">05-21 16:30</span></div><div class="mp-follow-content">补充发送服务流程图，对方关注理赔时效和门诊结算方式。</div></div></div>' +
+        '<div class="mp-follow-record"><span class="mp-follow-dot"></span><div class="mp-follow-record-body"><div class="mp-follow-record-head"><span class="mp-follow-method">到店沟通</span><span class="mp-follow-time">05-20 14:10</span></div><div class="mp-follow-content">完成门店初访，院长认可保障方案价值，需要内部评估合作费用。</div></div></div>';
+      var count = recordList.querySelectorAll('.mp-follow-record').length;
+      if (countNum) countNum.textContent = count;
+      if (countText) countText.textContent = '共 ' + count + ' 条';
+    }
+  }
+  // 根据状态设置底部按钮
+  var actions = document.getElementById('store-detail-actions');
+  if (actions) {
+    if (status === '已签约') {
+      actions.innerHTML = '<button class="btn" onclick="openModal(\'modal-add-follow-up\')">新增记录</button><button class="btn btn-primary" onclick="viewContract()">查看合同</button>';
+    } else {
+      actions.innerHTML = '<button class="btn" onclick="openModal(\'modal-add-follow-up\')">新增记录</button><button class="btn btn-primary" onclick="goSignInvitePage()">开始签约</button>';
+    }
+  }
   showPage('company-store-follow-up');
 }
 
@@ -3195,6 +3280,24 @@ function createSignInviteData() {
     token: token,
     link: 'https://qa.vm.com/lingxi-dental/sign-flow?' + params.toString()
   };
+}
+
+function goSignInvitePage(linkEl) {
+  currentSignInvite = createSignInviteData();
+  setTextById('sign-flow-store-name', currentStoreFollowUp.name);
+  setTextById('sign-flow-store-contact', currentStoreFollowUp.contact);
+  setTextById('sign-flow-store-address', currentStoreFollowUp.address);
+  setTextById('sign-flow-sales', '邀请商务：' + currentSalesStaff.name + ' · ' + currentSalesStaff.team);
+  setTextById('sign-flow-source-link', currentSignInvite.link);
+  if (linkEl) {
+    document.querySelectorAll('.sidebar-menu a').forEach(function(a){a.classList.remove('active')});
+    linkEl.classList.add('active');
+  }
+  showPage('sign-flow');
+}
+
+function viewContract() {
+  openStoreContractPreview();
 }
 
 function openSignInvite() {
@@ -3235,7 +3338,6 @@ function openSignFlowFromInvite() {
   setTextById('sign-flow-store-address', currentStoreFollowUp.address);
   setTextById('sign-flow-sales', '邀请商务：' + currentSalesStaff.name + ' · ' + currentSalesStaff.team);
   setTextById('sign-flow-source-link', currentSignInvite.link);
-  closeModal('modal-sign-invite');
   showPage('sign-flow');
 }
 
@@ -3436,20 +3538,41 @@ function escapeHtml(value) {
   });
 }
 
+function toggleNoIntentReason() {
+  var checked = document.getElementById('follow-up-no-intent').checked;
+  document.getElementById('follow-up-no-intent-row').style.display = checked ? '' : 'none';
+  if (!checked) document.getElementById('follow-up-no-intent-reason').value = '';
+}
+
 function saveStoreFollowUp() {
   var method = document.getElementById('follow-up-method');
   var content = document.getElementById('follow-up-content');
+  var timeInput = document.getElementById('follow-up-time');
   var text = content ? content.value.trim() : '';
+  if (!timeInput || !timeInput.value) {
+    toast('请选择跟进时间', 'warning');
+    if (timeInput) timeInput.focus();
+    return;
+  }
   if (!text) {
     toast('请填写跟进内容', 'warning');
     if (content) content.focus();
     return;
   }
+  var noIntentCb = document.getElementById('follow-up-no-intent');
+  var noIntentReason = document.getElementById('follow-up-no-intent-reason');
+  if (noIntentCb && noIntentCb.checked && (!noIntentReason || !noIntentReason.value.trim())) {
+    toast('请填写无合作意向原因', 'warning');
+    if (noIntentReason) noIntentReason.focus();
+    return;
+  }
+  var d = new Date(timeInput.value);
+  var timeStr = d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0') + ' ' + String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
   var list = document.getElementById('store-follow-up-record-list');
   if (list) {
     list.insertAdjacentHTML('afterbegin',
       '<div class="mp-follow-record"><span class="mp-follow-dot"></span><div class="mp-follow-record-body">' +
-      '<div class="mp-follow-record-head"><span class="mp-follow-method">' + escapeHtml(method ? method.value : '电话') + '沟通</span><span class="mp-follow-time">刚刚</span></div>' +
+      '<div class="mp-follow-record-head"><span class="mp-follow-method">' + escapeHtml(method ? method.value : '电话') + '沟通</span><span class="mp-follow-time">' + timeStr + '</span></div>' +
       '<div class="mp-follow-content">' + escapeHtml(text) + '</div></div></div>'
     );
   }
@@ -3459,6 +3582,10 @@ function saveStoreFollowUp() {
   if (countNum) countNum.textContent = count;
   if (countText) countText.textContent = '共 ' + count + ' 条';
   if (content) content.value = '';
+  if (timeInput) timeInput.value = '';
+  if (noIntentCb) { noIntentCb.checked = false; }
+  if (noIntentReason) { noIntentReason.value = ''; }
+  document.getElementById('follow-up-no-intent-row').style.display = 'none';
   closeModal('modal-add-follow-up');
   toast('跟进记录已保存', 'success');
 }
@@ -3489,31 +3616,92 @@ function syncMapRegionCascade() {
   toast('已切换负责区域范围','info');
 }
 
-var mapViewState = { x: 0, y: 0, scale: 1 };
+var ZOOM_LEVELS = [0.5, 0.6, 0.72, 0.85, 1.0, 1.2, 1.5, 2.0];
+var mapZoomIdx = 4;
+var mapViewState = { x: 0, y: 0 };
 var mapDragState = null;
 
 function applyMapView() {
   var canvas = document.getElementById('map-canvas');
   if (!canvas) return;
-  canvas.style.transform = 'translate(' + mapViewState.x + 'px,' + mapViewState.y + 'px) scale(' + mapViewState.scale + ')';
+  var scale = ZOOM_LEVELS[mapZoomIdx];
+  canvas.style.transform = 'translate(' + mapViewState.x + 'px,' + mapViewState.y + 'px) scale(' + scale + ')';
+  canvas.querySelectorAll('.map-marker[data-zoom]').forEach(function(m) {
+    var z = parseInt(m.getAttribute('data-zoom')) || 0;
+    var show = (z === 0) || (z === 1 && scale <= 1.0) || (z === 2 && scale <= 0.72);
+    m.classList.toggle('zoom-hidden', !show);
+  });
+  canvas.querySelectorAll('.map-marker .pin-label').forEach(function(lbl) {
+    lbl.style.opacity = scale < 0.6 ? '0' : '1';
+  });
+  var btnIn = document.querySelector('.mp-map-zoom .zoom-in');
+  var btnOut = document.querySelector('.mp-map-zoom .zoom-out');
+  if (btnIn) btnIn.disabled = mapZoomIdx >= ZOOM_LEVELS.length - 1;
+  if (btnOut) btnOut.disabled = mapZoomIdx <= 0;
 }
 
 function setMapScaleByWheel(e, workbench) {
+  var prevIdx = mapZoomIdx;
+  var nextIdx = e.deltaY < 0
+    ? Math.min(ZOOM_LEVELS.length - 1, mapZoomIdx + 1)
+    : Math.max(0, mapZoomIdx - 1);
+  if (nextIdx === prevIdx) return;
+  var prevScale = ZOOM_LEVELS[prevIdx];
+  var nextScale = ZOOM_LEVELS[nextIdx];
   var rect = workbench.getBoundingClientRect();
-  var prevScale = mapViewState.scale;
-  var nextScale = Math.max(0.72, Math.min(2.2, prevScale * (e.deltaY < 0 ? 1.12 : 0.88)));
   var pointerX = e.clientX - rect.left;
   var pointerY = e.clientY - rect.top;
   mapViewState.x = pointerX - ((pointerX - mapViewState.x) / prevScale) * nextScale;
   mapViewState.y = pointerY - ((pointerY - mapViewState.y) / prevScale) * nextScale;
-  mapViewState.scale = Number(nextScale.toFixed(3));
+  mapZoomIdx = nextIdx;
   applyMapView();
 }
 
 function resetMapView() {
-  mapViewState = { x: 0, y: 0, scale: 1 };
+  mapViewState = { x: 0, y: 0 };
+  mapZoomIdx = 4;
   applyMapView();
 }
+
+function mapZoomIn() {
+  if (mapZoomIdx >= ZOOM_LEVELS.length - 1) return;
+  mapZoomIdx++;
+  applyMapView();
+}
+
+function mapZoomOut() {
+  if (mapZoomIdx <= 0) return;
+  mapZoomIdx--;
+  applyMapView();
+}
+
+// ---- Sheet swipe ----
+var sheetSwipeState = null;
+document.addEventListener('touchstart', function(e) {
+  var sheet = document.getElementById('map-sheet');
+  if (!sheet) return;
+  var handle = sheet.querySelector('.mp-map-sheet-handle');
+  if (!handle) return;
+  var touch = e.touches[0];
+  var target = document.elementFromPoint(touch.clientX, touch.clientY);
+  if (!target) return;
+  var onHandle = handle.contains(target) || sheet.querySelector('.mp-map-sheet-search').contains(target);
+  if (!onHandle && sheet.classList.contains('expanded')) return;
+  if (!onHandle && !sheet.classList.contains('expanded')) return;
+  sheetSwipeState = { startY: touch.clientY, sheet: sheet };
+}, { passive: true });
+
+document.addEventListener('touchmove', function(e) {
+  if (!sheetSwipeState) return;
+  var touch = e.touches[0];
+  var dy = sheetSwipeState.startY - touch.clientY;
+  if (Math.abs(dy) > 15) {
+    toggleMapSheet(dy > 0);
+    sheetSwipeState = null;
+  }
+}, { passive: true });
+
+document.addEventListener('touchend', function() { sheetSwipeState = null; }, { passive: true });
 
 function toggleMapSheet(forceOpen) {
   var sheet = document.getElementById('map-sheet');
@@ -3576,12 +3764,11 @@ function showMapPanel(panelId) {
   var targetPanel = page.querySelector('#' + panelId);
   if (targetPanel) targetPanel.classList.add('active');
   var titleMap = {
-    'map-pending': '附近待跟进',
     'map-all': '全部门店',
-    'map-untouched': '未接触门店',
+    'map-pending': '待跟进门店',
     'map-following': '跟进中门店',
     'map-signed': '已签约门店',
-    'map-rejected': '拒绝合作门店'
+    'map-nointent': '无合作意向门店'
   };
   var title = page.querySelector('.mp-map-sheet-title');
   if (title && titleMap[panelId]) title.textContent = titleMap[panelId];
@@ -3599,35 +3786,14 @@ function selectMapClinic(panelId, marker) {
 }
 
 function openMapClinicDetail(panelId, marker, name, address, status, contact, note) {
-  showMapPanel(panelId);
   if (marker) {
     marker.closest('.mp-map-workbench').querySelectorAll('.map-marker').forEach(function(item) {
       item.classList.remove('selected');
     });
     marker.classList.add('selected');
   }
-  var fields = {
-    'map-detail-name': name,
-    'map-detail-address': address,
-    'map-detail-status': status,
-    'map-detail-contact': contact,
-    'map-detail-note': note
-  };
-  Object.keys(fields).forEach(function(id) {
-    var el = document.getElementById(id);
-    if (el) el.textContent = fields[id];
-  });
-  var shouldShowOwner = status !== '未接触' && status !== '拒绝' && status !== '拒绝合作';
-  var ownerRow = document.getElementById('map-detail-owner-row');
-  var owner = document.getElementById('map-detail-owner');
-  if (ownerRow) ownerRow.style.display = shouldShowOwner ? '' : 'none';
-  if (owner) owner.textContent = status === '已签约' ? '商务负责人 · 张明' : '当前商务 · 张明';
-  openModal('modal-map-clinic-detail');
-}
-
-function goMapNavigation() {
-  closeModal('modal-map-clinic-detail');
-  toast('已打开前往门店的导航路线', 'success');
+  var statusMap = { '待跟进': '待跟进', '跟进中': '跟进中', '已签约': '已签约', '无合作意向': '无合作意向' };
+  openStoreFollowUp(name, contact, address, statusMap[status] || status);
 }
 document.addEventListener('click', function(e) {
   if (e.target.classList.contains('modal-overlay') && e.target.classList.contains('show')) {
@@ -3703,7 +3869,7 @@ function showPage(id, el) {
   if(id==='company-schedule'){setTimeout(function(){renderCalendar();},50);}
   var titles = {
     'overview':'需求概要',
-    'company-login':'商务登录','company-dashboard':'公司端工作台','company-opportunity':'商机','company-store':'门店','company-store-follow-up':'门店跟进','company-schedule':'日程管理','company-map':'地图与网格','company-message':'消息','company-profile':'我的','sign-flow':'合同签约','cert':'企业认证','contract-sign':'合同签署',
+    'company-login':'商务登录','company-dashboard':'公司端工作台','company-opportunity':'商机','company-store':'门店','company-store-follow-up':'门店详情','company-schedule':'日程管理','company-map':'地图','company-message':'消息','company-profile':'我的','sign-invite-page':'签约邀请','sign-flow':'合同签约','cert':'企业认证','contract-sign':'合同签署',
     'clinic-dashboard':'门诊工作台','clinic-enroll':'我的','clinic-login':'门诊登录',
     'clinic-account':'预存账户','clinic-order':'投保出单','clinic-claim':'理赔申请',
     'user-policy':'C端权益查看','insurer-login':'保司登录','insurer-list':'投保审核','insurer-claim':'理赔审核',
@@ -3730,9 +3896,15 @@ function mpTab(btn, panelId) {
 }
 
 // ========== Modal ==========
+var _modalOriginalParent = null;
 function openModal(id) {
   var overlay = document.getElementById(id);
   if (!overlay) return;
+  var activePage = document.querySelector('.page.active .mp-phone') || document.querySelector('.page.active');
+  if (activePage && overlay.parentElement !== activePage) {
+    _modalOriginalParent = overlay.parentElement;
+    activePage.appendChild(overlay);
+  }
   overlay.style.display = 'flex';
   overlay.offsetHeight;
   overlay.classList.add('show');
@@ -3741,7 +3913,11 @@ function closeModal(id) {
   var overlay = document.getElementById(id);
   if (!overlay) return;
   overlay.classList.remove('show');
-  setTimeout(function(){overlay.style.display = 'none'}, 300);
+  var origParent = _modalOriginalParent;
+  setTimeout(function(){
+    overlay.style.display = 'none';
+    if (origParent) { origParent.appendChild(overlay); _modalOriginalParent = null; }
+  }, 300);
 }
 document.addEventListener('click', function(e) {
   if (e.target.classList.contains('modal-overlay') && e.target.classList.contains('show')) {
@@ -3998,6 +4174,92 @@ function selectCertMethod(name) {
   toast('已选择：' + name, 'success');
   setTimeout(function() { nextCertStep(4); }, 800);
 }
+
+// ========== Message Center ==========
+var msgData = [
+  { id:'m1', type:'schedule', label:'日程提醒', title:'14:00 到店拜访拱墅美康口腔', detail:'今日日程即将开始，请提前准备合作方案材料', time:'10分钟前', read:false, action:'company-schedule' },
+  { id:'m2', type:'opp', label:'新增商机', title:'新增商机：滨江微笑口腔', detail:'总部已下发新商机，请尽快认领跟进', time:'30分钟前', read:false, action:'company-opportunity' },
+  { id:'m3', type:'follow', label:'跟进提醒', title:'西湖美齿口腔已7天未跟进', detail:'认领后超过7天未更新跟进记录，请及时跟进', time:'2小时前', read:false, action:'store-pending' },
+  { id:'m4', type:'nofollow', label:'超期提醒', title:'城西瑞康口腔超30天未跟进', detail:'未签约客户超过30天未更新跟进，建议重新评估', time:'今日 09:15', read:false, action:'store-pending' },
+  { id:'m5', type:'sign', label:'签约成功', title:'上城同德口腔签约成功', detail:'合同已签署完成，合作模式：门诊预存+按单扣费', time:'昨日 16:30', read:true, action:'store-signed' },
+  { id:'m6', type:'schedule', label:'日程提醒', title:'明日 10:30 方案沟通', detail:'与杭州雅美口腔进行方案沟通，请提前确认参会', time:'昨日 18:00', read:true, action:'company-schedule' }
+];
+
+function initBell() {
+  var bellHTML = '<div class="mp-nav-bell" onclick="event.stopPropagation();toggleMsgPanel()"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="bell-badge" id="bell-badge"></span></div>';
+  var panelHTML = '<div class="mp-msg-overlay" id="msg-overlay" onclick="closeMsgPanel()"></div><div class="mp-msg-panel" id="msg-panel"><div class="mp-msg-panel-head"><h4>消息</h4><button class="mp-msg-mark-all" onclick="markAllRead()">全部已读</button></div><div class="mp-msg-list" id="msg-list"></div></div>';
+  var companyPages = document.querySelectorAll('[id="page-company-profile"] .mp-phone');
+  companyPages.forEach(function(phone) {
+    var navbar = phone.querySelector('.mp-navbar');
+    if (!navbar || navbar.querySelector('.mp-nav-bell')) return;
+    navbar.insertAdjacentHTML('beforeend', bellHTML);
+    phone.insertAdjacentHTML('beforeend', panelHTML);
+  });
+  renderMsgList();
+  updateBellBadge();
+}
+
+function renderMsgList() {
+  var panels = document.querySelectorAll('#msg-list');
+  var html = '';
+  msgData.forEach(function(m) {
+    html += '<div class="mp-msg-card' + (m.read ? ' read' : '') + '" onclick="handleMsgClick(\'' + m.id + '\')">' +
+      '<span class="mp-msg-unread-dot"></span><span class="mp-msg-type t-' + m.type + '">' + m.label + '</span>' +
+      '<div class="mp-msg-title">' + m.title + '</div>' +
+      '<div class="mp-msg-detail">' + m.detail + '</div>' +
+      '<div class="mp-msg-time">' + m.time + '</div></div>';
+  });
+  panels.forEach(function(el) { el.innerHTML = html; });
+}
+
+function updateBellBadge() {
+  var count = msgData.filter(function(m) { return !m.read; }).length;
+  var badges = document.querySelectorAll('#bell-badge');
+  badges.forEach(function(b) { b.textContent = count > 0 ? count : ''; });
+}
+
+function toggleMsgPanel() {
+  var phone = document.querySelector('.page.active .mp-phone') || document.querySelector('.page.active');
+  if (!phone) return;
+  var panel = phone.querySelector('#msg-panel');
+  var overlay = phone.querySelector('#msg-overlay');
+  if (!panel) return;
+  var isOpen = panel.classList.contains('open');
+  panel.classList.toggle('open', !isOpen);
+  if (overlay) overlay.classList.toggle('open', !isOpen);
+}
+
+function closeMsgPanel() {
+  var phone = document.querySelector('.page.active .mp-phone') || document.querySelector('.page.active');
+  if (!phone) return;
+  var panel = phone.querySelector('#msg-panel');
+  var overlay = phone.querySelector('#msg-overlay');
+  if (panel) panel.classList.remove('open');
+  if (overlay) overlay.classList.remove('open');
+}
+
+function handleMsgClick(id) {
+  var m = msgData.find(function(item) { return item.id === id; });
+  if (!m) return;
+  m.read = true;
+  renderMsgList();
+  updateBellBadge();
+  closeMsgPanel();
+  if (m.action.indexOf('store-') === 0) {
+    showStoreFilter(m.action);
+  } else {
+    showPage(m.action);
+  }
+}
+
+function markAllRead() {
+  msgData.forEach(function(m) { m.read = true; });
+  renderMsgList();
+  updateBellBadge();
+  toast('已全部标记为已读', 'success');
+}
+
+setTimeout(initBell, 100);
 </script>
 <div class="sidebar-overlay" onclick="toggleMobileSidebar()"></div>
 </body>
